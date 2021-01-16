@@ -13,7 +13,7 @@ function Mine() {
     dispatch(getBannerAction())
   }, [dispatch])
 
-  return <div>{banner.length}</div>
+  return <div>{banner.length}...</div>
 }
 
 export default memo(Mine)
