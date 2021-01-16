@@ -5,8 +5,10 @@ export const getBanner = res => ({
   banner: res.banners
 })
 
-export const getBannerAction = dispatch => {
-  getHomeBanner().then(res => {
-    dispatch(getBanner(res))
-  })
+export const getBannerAction = () => {
+  return dispatch => {
+    getHomeBanner().then(res => {
+      dispatch(getBanner(res))
+    })
+  }
 }
