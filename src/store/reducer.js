@@ -1,10 +1,11 @@
-import { combineReducers } from 'redux-immutable'
+import { combineReducers } from 'redux'
+// import { combineReducers } from 'redux-immutable'
 
-import { reducer as homeReducer } from '@/pages/home/c-pages/recommend/store'
+import { reducer as homeReducer } from '@/pages/home/store'
 // import { reducer as MineReducer } from '@/pages/mine/store'
 
-const cReducer = combineReducers({
-  recommend: homeReducer
+const Reducer = combineReducers({
+  home: homeReducer
   // mine: MineReducer
 })
-export default cReducer
+export default Reducer
