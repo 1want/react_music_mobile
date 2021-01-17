@@ -1,6 +1,6 @@
 import { Map } from 'immutable'
 
-import * as type from './constants'
+import * as actionTypes from './constants'
 
 const defaultState = Map({
   banner: []
@@ -8,7 +8,7 @@ const defaultState = Map({
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case type.CHANGE_BANNER:
+    case actionTypes.CHANGE_BANNER:
       return state.set('banner', action.banner)
     default:
       return state

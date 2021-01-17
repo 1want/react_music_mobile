@@ -1,5 +1,4 @@
 @import '~normalize.css';
-@import 'antd-mobile/dist/antd-mobile.css'; /* 样式的重置 */
 @import '@/assets/css/iconfont.css';
 
 body,
@@ -38,11 +37,6 @@ li {
 a {
   text-decoration: none;
   color: #666;
-}
-
-a:hover {
-  color: #666;
-  text-decoration: underline;
 }
 
 i,

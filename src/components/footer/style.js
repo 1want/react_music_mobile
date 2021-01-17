@@ -7,26 +7,6 @@ export const All = styled.div`
   background: red;
 `
 
-export const TopMenu = styled.div`
-  display: flex;
-  width: 100%;
-  padding: 10px;
-  position: fixed;
-  top: 0;
-  .top-img {
-    width: 1.7rem;
-    height: 1.7rem;
-  }
-  input {
-    flex: 1;
-  }
-  .icon-luyin {
-    width: 1.7rem;
-    height: 1.7rem;
-    font-size: 1.5rem;
-  }
-`
-
 export const BottomMenu = styled.div`
   .top {
     height: 60px;
@@ -42,6 +22,9 @@ export const BottomMenu = styled.div`
       color: #999;
       .iconfont {
         font-size: 1.8rem;
+      }
+      .active {
+        color: #ea2b2b;
       }
       .title {
         margin-top: 0.3rem;

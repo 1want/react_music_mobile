@@ -64,27 +64,32 @@ export const dicoverMenu = [
   {
     title: '推荐',
     link: '/home',
-    i: 'faxian'
+    i: 'faxian',
+    index: 0
   },
   {
-    title: '电台',
-    link: '/radio',
-    i: 'luyinjishouyinjidiantai'
+    title: '视频',
+    link: '/video',
+    i: 'icon-test',
+    index: 1
   },
   {
     title: '歌单',
     link: '/songs',
-    i: 'gedan'
+    i: 'gedan',
+    index: 2
   },
   {
-    title: '歌手',
-    link: '/singers',
-    i: 'qingganganqing'
+    title: '故事',
+    link: '/story',
+    i: 'qingganganqing',
+    index: 3
   },
   {
     title: '我的',
     link: '/mine',
-    i: 'wode'
+    i: 'wode',
+    index: 4
   }
 ]
 

@@ -27,7 +27,7 @@ export default [
     component: SuspenseComponent(Home)
   },
   {
-    path: '/radio',
+    path: '/video',
     exact: true,
     component: SuspenseComponent(Radio)
   },
@@ -37,7 +37,7 @@ export default [
     component: SuspenseComponent(Songs)
   },
   {
-    path: '/singers',
+    path: '/story',
     exact: true,
     component: SuspenseComponent(Singers)
   },
