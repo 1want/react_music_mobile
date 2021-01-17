@@ -3,11 +3,14 @@ import styled from 'styled-components'
 export const All = styled.div`
   height: 60px;
   background: #7467671f;
+  /* z-index: 100;
+  position: fixed;
+  top: 0;
+  width: 100%; */
 `
 export const TopMenu = styled.div`
   display: flex;
   width: 100%;
-  /* padding: 0.625rem; */
   position: fixed;
   align-items: center;
   height: 3.125rem;

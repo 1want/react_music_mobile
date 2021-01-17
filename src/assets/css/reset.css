@@ -1,5 +1,6 @@
 @import '~normalize.css';
 @import '@/assets/css/iconfont.css';
+@import 'swiper/swiper-bundle.min.css';
 
 body,
 html,

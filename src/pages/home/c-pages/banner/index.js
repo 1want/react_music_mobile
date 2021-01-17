@@ -8,7 +8,6 @@ import { getBannerAction } from '../../store/action'
 import { topMenu } from '@/api/local-data'
 
 import { BannerWrapper, TopMenu } from './style'
-import 'swiper/swiper-bundle.min.css'
 
 SwiperCore.use([Pagination, Autoplay])
 
