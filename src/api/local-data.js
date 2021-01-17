@@ -1,23 +1,23 @@
-export const headerLinks = [
+export const topMenu = [
   {
-    title: '发现音乐',
-    link: '/discover'
+    title: '直播',
+    i: 'icon-zhibo'
   },
   {
-    title: '我的音乐',
-    link: '/mine'
+    title: '电台',
+    i: 'icon-luyinjishouyinjidiantai'
   },
   {
-    title: '朋友',
-    link: '/friend'
+    title: '排行榜',
+    i: 'icon-_huabanfuben'
   },
   {
-    title: '榜单',
-    link: 'https://music.163.com/store/product'
+    title: 'K歌',
+    i: 'icon-huatong'
   },
   {
-    title: '音乐人',
-    link: 'https://music.163.com/nmusician/web/index#/'
+    title: '睡眠',
+    i: 'icon-shuimian'
   }
 ]
 
@@ -59,7 +59,7 @@ export const footerImages = [
   }
 ]
 
-// discover中的数据
+// tabBar底部栏
 export const dicoverMenu = [
   {
     title: '推荐',

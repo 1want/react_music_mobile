@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const All = styled.div`
   height: 60px;
-  background: #e1e1e11f;
+  background: #7467671f;
 `
 export const TopMenu = styled.div`
   display: flex;

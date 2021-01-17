@@ -2,14 +2,17 @@ import React, { memo, useEffect } from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import SwiperCore, { Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/swiper-bundle.min.css'
 
 import { getBannerAction } from '../../store/action'
 
-import { BannerWrapper } from './style'
+import { topMenu } from '@/api/local-data'
+
+import { BannerWrapper, TopMenu } from './style'
+import 'swiper/swiper-bundle.min.css'
+
 SwiperCore.use([Pagination, Autoplay])
 
-function Mine() {
+function Banner() {
   const dispatch = useDispatch()
 
   const { banner } = useSelector(
@@ -23,18 +26,42 @@ function Mine() {
   }, [dispatch])
 
   return (
-    <BannerWrapper>
-      <Swiper slidesPerView={1} spaceBetween={10} autoplay loop pagination>
-        {banner.map(item => {
+    <div
+      style={{
+        padding: '0 14px',
+        background: '#fff'
+      }}>
+      <div
+        style={{
+          background: '#e6e0e0d4',
+          height: '40px',
+          position: 'absolute',
+          width: '100vw',
+          marginLeft: '-14px'
+        }}></div>
+      <BannerWrapper>
+        <Swiper slidesPerView={1} spaceBetween={10} autoplay loop pagination>
+          {banner.map(item => {
+            return (
+              <SwiperSlide key={item.encodeId}>
+                <img src={item.imageUrl} alt='' />
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+      </BannerWrapper>
+      <TopMenu>
+        {topMenu.map(item => {
           return (
-            <SwiperSlide key={item.encodeId}>
-              <img src={item.imageUrl} alt='' />
-            </SwiperSlide>
+            <div key={item.title} className='top-menu'>
+              <span className={['iconfont ' + item.i]}></span>
+              <p>{item.title}</p>
+            </div>
           )
         })}
-      </Swiper>
-    </BannerWrapper>
+      </TopMenu>
+    </div>
   )
 }
 
-export default memo(Mine)
+export default memo(Banner)

@@ -16,3 +16,27 @@ export const BannerWrapper = styled.div`
     }
   }
 `
+
+export const TopMenu = styled.div`
+  height: 100px;
+  display: flex;
+  border-bottom: 1px solid #efe9e966;
+  .top-menu {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    span {
+      font-size: 24px;
+      color: red;
+      background: #f0e7e9;
+      padding: 10px;
+      border-radius: 50%;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 10px;
+    }
+  }
+`
