@@ -2,6 +2,7 @@ import React, { memo, useEffect } from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 
 import { getRecommendAction } from '../../store/action'
+import play from '@/utils/playCount'
 
 import { Wrapper } from './style'
 
@@ -31,8 +32,7 @@ function Recommend() {
               <img src={item.picUrl} alt='' />
               <span>
                 <i className='iconfont icon-bofang_huaban'></i>
-                {/* {item.playCount} */}
-                1000万
+                {play(item.playCount)}
               </span>
               <p>{item.name}</p>
             </div>

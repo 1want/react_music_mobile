@@ -11,7 +11,7 @@ const defaultState = Map({
   NewSong: []
 })
 
-export default (state = defaultState, action) => {
+const reducers = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.CHANGE_BANNER:
       return state.set('banner', action.banner)
@@ -29,3 +29,5 @@ export default (state = defaultState, action) => {
       return state
   }
 }
+
+export default reducers

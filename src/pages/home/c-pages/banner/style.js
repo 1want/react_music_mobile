@@ -2,25 +2,22 @@ import styled from 'styled-components'
 
 export const BannerWrapper = styled.div`
   overflow: hidden;
-  border-radius: 13px;
   width: 100%;
-
+  padding-top: 10px;
   .swiper-slide {
-    height: 140px;
+    height: 8.75rem;
     width: 100%;
-
     img {
       width: 100%;
       height: 100%;
-      border-radius: 13px;
     }
   }
 `
 
 export const TopMenu = styled.div`
-  height: 100px;
+  height: 6.25rem;
   display: flex;
-  border-bottom: 1px solid #efe9e966;
+  border-bottom: 0.0625rem solid #e6e0e04f;
   .top-menu {
     display: flex;
     flex-direction: column;
@@ -28,15 +25,15 @@ export const TopMenu = styled.div`
     justify-content: center;
     align-items: center;
     span {
-      font-size: 24px;
+      font-size: 1.5rem;
       color: red;
-      background: #f0e7e9;
-      padding: 10px;
+      background: #f0efef;
+      padding: 0.6875rem;
       border-radius: 50%;
     }
     p {
-      margin-top: 10px;
-      font-size: 10px;
+      margin-top: 0.625rem;
+      font-size: 0.625rem;
     }
   }
 `

@@ -56,6 +56,7 @@ export const Wrapper = styled.div`
       -webkit-box-orient: vertical;
       width: 6.25rem;
       font-size: 0.8125rem;
+      margin-top: -0.3125rem;
       margin-left: -0.625rem;
     }
   }

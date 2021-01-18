@@ -12,15 +12,13 @@ SwiperCore.use([Pagination, Autoplay])
 
 function NewSong() {
   const [current, setCurrent] = useState(1)
-  const [show, setShow] = useState(true)
 
   const dispatch = useDispatch()
 
-  const { album, newSong, disc } = useSelector(
+  const { album, newSong } = useSelector(
     state => ({
       album: state.getIn(['home', 'album']),
-      newSong: state.getIn(['home', 'NewSong']),
-      disc: state.getIn(['home', 'disc'])
+      newSong: state.getIn(['home', 'NewSong'])
     }),
     shallowEqual
   )
@@ -45,7 +43,7 @@ function NewSong() {
     setCurrent(index)
   }
 
-  const title = ['新歌', '新碟', '数字专辑']
+  const title = ['新歌', '新碟']
   return (
     <Wrapper>
       <div className='navigation'>
@@ -64,7 +62,6 @@ function NewSong() {
       <div>
         <Item res={resAlbum} current={current} index={0}></Item>
         <Item res={resNewSong} current={current} index={1}></Item>
-        <Item res={resAlbum} current={current} index={2}></Item>
       </div>
     </Wrapper>
   )
@@ -73,35 +70,36 @@ function NewSong() {
 function Item(props) {
   const { res, current, index } = props
   return (
-    <Swiper
-      slidesPerView={1}
-      spaceBetween={10}
-      style={{
-        left: current === index ? '0' : '-1000000px',
-        position: current === index ? 'relative' : 'absolute'
-      }}>
-      {res.map((item, indexs) => {
-        return (
-          <SwiperSlide key={indexs}>
-            <div className='content'>
-              {item.map(res => {
-                return (
-                  <div className='content-item' key={res.id}>
-                    <div className='item-left'>
-                      <img src={res.picUrl ?? res.coverImgUrl} alt='' />
+    // style={{
+    //   left: current === index ? '0' : '-1000000px',
+    //   position: current === index ? 'relative' : 'absolute'
+    // }}
+
+    current === index && (
+      <Swiper slidesPerView={1} spaceBetween={-20}>
+        {res.map((item, indexs) => {
+          return (
+            <SwiperSlide key={indexs}>
+              <div className='content'>
+                {item.map(res => {
+                  return (
+                    <div className='content-item' key={res.id}>
+                      <div className='item-left'>
+                        <img src={res.picUrl ?? res.coverImgUrl} alt='' />
+                      </div>
+                      <div className='item-right'>
+                        <span>{res.name}</span>
+                        <p>{res.company}</p>
+                      </div>
                     </div>
-                    <div className='item-right'>
-                      <span>{res.name}</span>
-                      <p>{res.company}</p>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </SwiperSlide>
-        )
-      })}
-    </Swiper>
+                  )
+                })}
+              </div>
+            </SwiperSlide>
+          )
+        })}
+      </Swiper>
+    )
   )
 }
 export default memo(NewSong)

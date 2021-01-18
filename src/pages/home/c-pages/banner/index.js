@@ -32,14 +32,22 @@ function Banner() {
       }}>
       <div
         style={{
-          background: '#e6e0e0d4',
+          background: '#e6e0e087',
           height: '40px',
           position: 'absolute',
           width: '100vw',
           marginLeft: '-14px'
         }}></div>
       <BannerWrapper>
-        <Swiper slidesPerView={1} spaceBetween={10} autoplay loop pagination>
+        <Swiper
+          style={{
+            borderRadius: '15px'
+          }}
+          slidesPerView={1}
+          spaceBetween={10}
+          autoplay
+          loop
+          pagination>
           {banner.map(item => {
             return (
               <SwiperSlide key={item.encodeId}>

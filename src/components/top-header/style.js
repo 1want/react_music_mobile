@@ -8,7 +8,7 @@ export const TopMenu = styled.div`
   top: 0;
   height: 60px;
   z-index: 10;
-  background: #fff;
+  background: #f0f0f0;
   .top-img {
     width: 1.3rem;
     height: 1.3rem;

@@ -15,7 +15,7 @@ const Songs = lazy(() => import('@/pages/songs'))
 const Singers = lazy(() => import('@/pages/singer'))
 const Mine = lazy(() => import('@/pages/mine'))
 
-export default [
+const routes = [
   {
     path: '/',
     exact: true,
@@ -47,3 +47,5 @@ export default [
     component: SuspenseComponent(Mine)
   }
 ]
+
+export default routes
