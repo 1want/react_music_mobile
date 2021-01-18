@@ -6,7 +6,9 @@ const defaultState = Map({
   banner: [],
   recommend: [],
   popular: [],
-  video: []
+  video: [],
+  album: [],
+  NewSong: []
 })
 
 export default (state = defaultState, action) => {
@@ -19,6 +21,10 @@ export default (state = defaultState, action) => {
       return state.set('popular', action.popular)
     case actionTypes.CHANGE_VIDEO:
       return state.set('video', action.video)
+    case actionTypes.CHANGE_ALBUM:
+      return state.set('album', action.album)
+    case actionTypes.CHANGE_NEW_SONG:
+      return state.set('NewSong', action.NewSong)
     default:
       return state
   }

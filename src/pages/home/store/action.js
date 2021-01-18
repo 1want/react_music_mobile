@@ -3,7 +3,9 @@ import {
   getHomeBanner,
   getHomeRecommend,
   getHomePopular,
-  getHomeVideo
+  getHomeVideo,
+  getHomeAlbum,
+  getHomeNewSong
 } from '@/api/home'
 
 export const getBanner = res => ({
@@ -24,6 +26,16 @@ export const getPopular = res => ({
 export const getVideo = res => ({
   type: actionTypes.CHANGE_VIDEO,
   video: res.data
+})
+
+export const getAlbum = res => ({
+  type: actionTypes.CHANGE_ALBUM,
+  album: res.albums
+})
+
+export const getNewSong = res => ({
+  type: actionTypes.CHANGE_NEW_SONG,
+  NewSong: res.playlists
 })
 
 export const getBannerAction = () => {
@@ -54,6 +66,22 @@ export const getVideoAction = () => {
   return dispatch => {
     getHomeVideo().then(res => {
       dispatch(getVideo(res))
+    })
+  }
+}
+
+export const getAlbumAction = () => {
+  return dispatch => {
+    getHomeAlbum().then(res => {
+      dispatch(getAlbum(res))
+    })
+  }
+}
+
+export const getNewSongAction = () => {
+  return dispatch => {
+    getHomeNewSong().then(res => {
+      dispatch(getNewSong(res))
     })
   }
 }

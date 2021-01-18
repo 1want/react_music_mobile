@@ -23,3 +23,20 @@ export const getHomeVideo = () =>
   request({
     url: '/related/allvideo?id=89ADDE33C0AAE8EC14B99F6750DB954D'
   })
+
+export const getHomeAlbum = (limit = 6) =>
+  request({
+    url: '/top/album',
+    params: {
+      limit
+    }
+  })
+
+export const getHomeNewSong = (cat = '欧美', limit = 6) =>
+  request({
+    url: '/top/playlist/highquality',
+    params: {
+      cat,
+      limit
+    }
+  })

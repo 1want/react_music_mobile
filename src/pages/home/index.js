@@ -3,6 +3,7 @@ import Banner from './c-pages/banner'
 import Recommend from './c-pages/recommend'
 import Popular from './c-pages/popular'
 import Video from './c-pages/video'
+import NewSong from './c-pages/new-song'
 
 import { Wrapper } from './style'
 
@@ -13,6 +14,7 @@ export default memo(function Home() {
       <Recommend></Recommend>
       <Popular></Popular>
       <Video></Video>
+      <NewSong></NewSong>
     </Wrapper>
   )
 })
