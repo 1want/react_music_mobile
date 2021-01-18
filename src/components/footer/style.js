@@ -1,20 +1,16 @@
 import styled from 'styled-components'
 
-export const All = styled.div`
-  height: 100vh;
-  overflow: hidden;
-  width: 100%;
-  background: red;
-`
-
 export const BottomMenu = styled.div`
+  z-index: 10;
+  background: #fff;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
   .top {
     height: 60px;
     display: flex;
     align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     .item {
       flex: 1;
       text-align: center;

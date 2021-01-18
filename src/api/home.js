@@ -18,3 +18,8 @@ export const getHomePopular = (limit = 9) =>
       limit
     }
   })
+
+export const getHomeVideo = () =>
+  request({
+    url: '/related/allvideo?id=89ADDE33C0AAE8EC14B99F6750DB954D'
+  })

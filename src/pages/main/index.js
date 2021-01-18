@@ -11,7 +11,7 @@ export default memo(function index() {
   return (
     <HashRouter>
       <TopHeader></TopHeader>
-      {renderRoutes(routes)}
+      <div style={{ margin: '60px 0' }}>{renderRoutes(routes)}</div>
       <Footer></Footer>
     </HashRouter>
   )

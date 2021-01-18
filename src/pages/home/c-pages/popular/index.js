@@ -32,22 +32,25 @@ function Recommend() {
     <Wrapper>
       <div className='navigation'>
         <span>流行精选</span>
-        <span>播放</span>
+        <span>◀ 播放</span>
       </div>
       <div>
-        <Swiper slidesPerView={1} spaceBetween={10} autoplay loop pagination>
+        <Swiper slidesPerView={1} spaceBetween={-20}>
           {res.map((item, index) => {
             return (
               <SwiperSlide key={index}>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div className='content'>
                   {item.map(res => {
                     return (
-                      <img
-                        key={res.coverImgUrl}
-                        src={res.coverImgUrl}
-                        alt=''
-                        style={{ height: '100px', width: '100px' }}
-                      />
+                      <div className='content-item' key={res.coverImgUrl}>
+                        <div className='item-left'>
+                          <img src={res.coverImgUrl} alt='' />
+                        </div>
+                        <div className='item-right'>
+                          <span>{res.name}</span>
+                          <p>{res.copywriter}</p>
+                        </div>
+                      </div>
                     )
                   })}
                 </div>

@@ -1,20 +1,14 @@
 import styled from 'styled-components'
 
-export const All = styled.div`
-  height: 60px;
-  background: #7467671f;
-  /* z-index: 100;
-  position: fixed;
-  top: 0;
-  width: 100%; */
-`
 export const TopMenu = styled.div`
   display: flex;
   width: 100%;
   position: fixed;
   align-items: center;
-  height: 3.125rem;
   top: 0;
+  height: 60px;
+  z-index: 10;
+  background: #fff;
   .top-img {
     width: 1.3rem;
     height: 1.3rem;

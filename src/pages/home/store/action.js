@@ -1,5 +1,10 @@
 import * as actionTypes from './constants'
-import { getHomeBanner, getHomeRecommend, getHomePopular } from '@/api/home'
+import {
+  getHomeBanner,
+  getHomeRecommend,
+  getHomePopular,
+  getHomeVideo
+} from '@/api/home'
 
 export const getBanner = res => ({
   type: actionTypes.CHANGE_BANNER,
@@ -14,6 +19,11 @@ export const getRecommend = res => ({
 export const getPopular = res => ({
   type: actionTypes.CHANGE_POPULAR,
   popular: res.playlists
+})
+
+export const getVideo = res => ({
+  type: actionTypes.CHANGE_VIDEO,
+  video: res.data
 })
 
 export const getBannerAction = () => {
@@ -36,6 +46,14 @@ export const getPopularAction = () => {
   return dispatch => {
     getHomePopular().then(res => {
       dispatch(getPopular(res))
+    })
+  }
+}
+
+export const getVideoAction = () => {
+  return dispatch => {
+    getHomeVideo().then(res => {
+      dispatch(getVideo(res))
     })
   }
 }

@@ -5,7 +5,8 @@ import * as actionTypes from './constants'
 const defaultState = Map({
   banner: [],
   recommend: [],
-  popular: []
+  popular: [],
+  video: []
 })
 
 export default (state = defaultState, action) => {
@@ -16,6 +17,8 @@ export default (state = defaultState, action) => {
       return state.set('recommend', action.recommend)
     case actionTypes.CHANGE_POPULAR:
       return state.set('popular', action.popular)
+    case actionTypes.CHANGE_VIDEO:
+      return state.set('video', action.video)
     default:
       return state
   }
