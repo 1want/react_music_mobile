@@ -24,27 +24,28 @@ export const getHomeVideo = () =>
     url: '/related/allvideo?id=89ADDE33C0AAE8EC14B99F6750DB954D'
   })
 
-export const getHomeAlbum = (limit = 6) =>
+export const getHomeAlbum = (type = 96) =>
   request({
-    url: '/top/album',
+    url: '/top/song',
     params: {
-      limit
+      type
     }
   })
 
-export const getHomeNewSong = (cat = '欧美', limit = 6) =>
-  request({
-    url: '/top/playlist/highquality',
-    params: {
-      cat,
-      limit
-    }
-  })
-
-export const getMusic = id =>
+// 获取歌曲播放url
+export const getMusicUrl = id =>
   request({
     url: '/song/url',
     params: {
       id
+    }
+  })
+
+// 获取歌曲信息
+export const getMusicInfo = ids =>
+  request({
+    url: '/song/detail',
+    params: {
+      ids
     }
   })

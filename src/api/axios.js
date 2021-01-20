@@ -6,7 +6,7 @@ function request(option) {
     // 1.创建axios的实例
     const instance = axios.create({
       baseURL: 'http://123.207.32.32:9001/',
-      timeout: 5000
+      timeout: 10000
     })
 
     // 配置请求和响应拦截

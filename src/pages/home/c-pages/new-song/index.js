@@ -5,7 +5,11 @@ import SwiperCore, { Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { getAlbumAction, getNewSongAction } from '../../store/action'
-
+import {
+  changeSongInfo,
+  addSongToList,
+  getMusicInfoAction
+} from '@/pages/play/store/action'
 import { Wrapper } from './style'
 
 SwiperCore.use([Pagination, Autoplay])
@@ -15,23 +19,25 @@ function NewSong() {
 
   const dispatch = useDispatch()
 
-  const { album, newSong } = useSelector(
+  const { album, newSong, playList } = useSelector(
     state => ({
       album: state.getIn(['home', 'album']),
-      newSong: state.getIn(['home', 'NewSong'])
+      newSong: state.getIn(['home', 'NewSong']),
+      playList: state.getIn(['play', 'playList'])
     }),
     shallowEqual
   )
   useEffect(() => {
-    dispatch(getAlbumAction())
-  }, [dispatch])
+    dispatch(getAlbumAction(7))
+  }, [true])
 
   useEffect(() => {
     dispatch(getNewSongAction())
-  }, [dispatch])
+  }, [true])
 
   const resAlbum = []
   const resNewSong = []
+
   for (let i = 0; i < album.length; i += 3) {
     resAlbum.push(album.slice(i, i + 3))
   }
@@ -60,7 +66,11 @@ function NewSong() {
         <div className='right'>更多 ></div>
       </div>
       <div>
-        <Item res={resAlbum} current={current} index={0}></Item>
+        <Item
+          res={resAlbum}
+          current={current}
+          index={0}
+          playList={playList}></Item>
         <Item res={resNewSong} current={current} index={1}></Item>
       </div>
     </Wrapper>
@@ -68,13 +78,13 @@ function NewSong() {
 }
 
 function Item(props) {
-  const { res, current, index } = props
+  const { res, current, index, playList } = props
+  const dispatch = useDispatch()
+  function playMusic(res) {
+    dispatch(getMusicInfoAction(res.id))
+    dispatch(addSongToList(res))
+  }
   return (
-    // style={{
-    //   left: current === index ? '0' : '-1000000px',
-    //   position: current === index ? 'relative' : 'absolute'
-    // }}
-
     current === index && (
       <Swiper slidesPerView={1} spaceBetween={-20}>
         {res.map((item, indexs) => {
@@ -83,13 +93,16 @@ function Item(props) {
               <div className='content'>
                 {item.map(res => {
                   return (
-                    <div className='content-item' key={res.id}>
+                    <div
+                      className='content-item'
+                      key={res.id}
+                      onClick={() => playMusic(res)}>
                       <div className='item-left'>
-                        <img src={res.picUrl ?? res.coverImgUrl} alt='' />
+                        <img src={res.album.picUrl} alt='' />
                       </div>
                       <div className='item-right'>
                         <span>{res.name}</span>
-                        <p>{res.company}</p>
+                        <p>{res.album.name}</p>
                       </div>
                     </div>
                   )

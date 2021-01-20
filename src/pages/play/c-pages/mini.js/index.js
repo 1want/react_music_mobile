@@ -6,6 +6,11 @@ import { checkMaxPlay } from '../../store/action'
 import { Wrapper } from './style'
 
 export default memo(function Mini() {
+  const songInfo = useSelector(
+    state => state.getIn(['play', 'songs']),
+    shallowEqual
+  )
+
   const dispatch = useDispatch()
 
   function changePlayType() {
@@ -13,8 +18,8 @@ export default memo(function Mini() {
   }
   return (
     <Wrapper onClick={() => changePlayType()}>
-      <img src='' alt='' />
-      <div className='songs-info'>info</div>
+      <img src={songInfo ? 'songInfo.al.picUrl' : ''} alt='' />
+      <div className='songs-info'>{songInfo.name}</div>
       <div className='play-list'>
         <span className='iconfont icon-bofang'></span>
         <span className='iconfont icon-bofangliebiao'></span>

@@ -1,2 +1,4 @@
 export const GET_MUSIC_URL = 'GET_MUSIC_URL'
 export const CHANGE_PLAY_TYPE = 'CHANGE_PLAY_TYPE'
+export const ADD_MUSIC_TO_LIST = 'ADD_MUSIC_TO_LIST'
+export const CHANGE_SONG_INFO = 'CHANGE_SONG_INFO'

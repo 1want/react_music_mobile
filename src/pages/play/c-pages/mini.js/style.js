@@ -15,7 +15,6 @@ export const Wrapper = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: yellow;
     overflow: hidden;
   }
   .songs-info {

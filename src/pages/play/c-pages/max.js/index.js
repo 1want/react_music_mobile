@@ -1,20 +1,20 @@
-import React, { memo, useEffect, useState, useRef } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 
-import { getMusicUrlAction, checkMiniPlay } from '../../store/action'
+import { checkMiniPlay } from '../../store/action'
 
 import { Wrapper, Header, Main, Footer } from './style'
 import './enter.css'
 
 function Max() {
-  const urlDom = useRef()
   const dispatch = useDispatch()
-  const [show, isShow] = useState(true)
+  const songInfo = useSelector(
+    state => state.getIn(['play', 'songs']),
+    shallowEqual
+  )
 
-  useEffect(() => {
-    dispatch(getMusicUrlAction(33894312))
-  }, [dispatch])
+  const [show, isShow] = useState(true)
 
   function changePlayType() {
     dispatch(checkMiniPlay())
@@ -28,14 +28,16 @@ function Max() {
             className='iconfont icon-xiajiantou_huaban'
             onClick={() => changePlayType()}></span>
           <div className='songs-info'>
-            <span>歌曲</span>
-            <p> 歌手</p>
+            <span>
+              ({songInfo.alia[0]}){songInfo.name}
+            </span>
+            <p>{songInfo.ar[0].name}</p>
           </div>
           <span>分享</span>
         </Header>
         <Main>
           <div className='img-wrapper'>
-            <img src='' alt='' />
+            <img src={songInfo ? 'songInfo.al.picUrl' : ''} alt='' />
           </div>
         </Main>
         <Footer>
