@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useState } from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 

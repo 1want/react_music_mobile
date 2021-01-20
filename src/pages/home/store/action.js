@@ -4,8 +4,7 @@ import {
   getHomeRecommend,
   getHomePopular,
   getHomeVideo,
-  getHomeAlbum,
-  getHomeNewSong
+  getHomeAlbum
 } from '@/api/home'
 
 export const getBanner = res => ({

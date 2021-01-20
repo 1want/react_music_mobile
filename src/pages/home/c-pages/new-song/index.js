@@ -5,11 +5,7 @@ import SwiperCore, { Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { getAlbumAction, getNewSongAction } from '../../store/action'
-import {
-  changeSongInfo,
-  addSongToList,
-  getMusicInfoAction
-} from '@/pages/play/store/action'
+import { addSongToList, getMusicInfoAction } from '@/pages/play/store/action'
 import { Wrapper } from './style'
 
 SwiperCore.use([Pagination, Autoplay])
@@ -29,11 +25,11 @@ function NewSong() {
   )
   useEffect(() => {
     dispatch(getAlbumAction(7))
-  }, [true])
+  }, [dispatch])
 
   useEffect(() => {
     dispatch(getNewSongAction())
-  }, [true])
+  }, [dispatch])
 
   const resAlbum = []
   const resNewSong = []
@@ -78,7 +74,7 @@ function NewSong() {
 }
 
 function Item(props) {
-  const { res, current, index, playList } = props
+  const { res, current, index } = props
   const dispatch = useDispatch()
   function playMusic(res) {
     dispatch(getMusicInfoAction(res.id))

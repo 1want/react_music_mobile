@@ -21,19 +21,14 @@ export default memo(function Player(props) {
   )
 
   useEffect(() => {
-    console.log('kokokko')
     if (songs != '') {
-      console.log('kokokoko')
       dispatch(getMusicInfoAction(songs.id))
     }
   }, [dispatch])
 
   useEffect(() => {
-    console.log('okko')
     if (songs != '') {
       dispatch(getMusicUrlAction(songs.id))
-      urlRef.current.src = musicUrl.url
-      console.log('yes')
     }
   }, [songs])
 
@@ -42,7 +37,7 @@ export default memo(function Player(props) {
       {playList != '' && (
         <div>
           {playType === 'mini' ? <Mini></Mini> : <Max></Max>}
-          <audio src='' ref={urlRef} autoPlay></audio>
+          <audio src={musicUrl.url} ref={urlRef} autoPlay></audio>
         </div>
       )}
     </>
