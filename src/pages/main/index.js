@@ -8,7 +8,7 @@ import TopHeader from '@/components/top-header'
 import Footer from '@/components/footer'
 import Player from '@/pages/play'
 
-export default memo(function Main() {
+export default memo(function Main(props) {
   return (
     <HashRouter>
       <TopHeader></TopHeader>

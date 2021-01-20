@@ -11,22 +11,23 @@ export default memo(function Home() {
   const domRef = useRef()
   useEffect(() => {
     const scroll = new BScroll(domRef.current, {
-      probeType: true,
       click: false,
       startY: true,
       scrollY: true,
       freeScroll: true,
-      scrollX: true,
-      eventPassthrough: true,
-      bounce: true
+      eventPassthrough: 'horizontal',
+      bounce: {
+        top: false,
+        bottom: true,
+        left: false,
+        right: false
+      }
     })
   }, [])
 
   return (
-    <div
-      ref={domRef}
-      style={{ height: 'calc(100vh - 120px)', overflow: 'hidden' }}>
-      <div style={{ paddingBottom: '140px' }}>
+    <div ref={domRef} style={{ height: '100vh', overflow: 'hidden' }}>
+      <div style={{ paddingBottom: '240px' }}>
         <Banner></Banner>
         <Recommend></Recommend>
         <Popular></Popular>

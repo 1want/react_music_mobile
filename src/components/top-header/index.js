@@ -8,7 +8,7 @@ export default memo(function Home() {
     <TopMenu>
       <img src={tsIcon} alt='' className='top-img' />
       <input type='text' placeholder='123' />
-      <i className='iconfont icon-luyin'></i>
+      <i className='iconfont icon-faxian'></i>
     </TopMenu>
   )
 })

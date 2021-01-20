@@ -1,0 +1,22 @@
+.play-enter,
+.play-appear {
+  opacity: 0;
+}
+.play-enter-active,
+.play-appear-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+/* .test-enter-done {
+  opacity: 1;
+}
+.test-exit {
+  opacity: 1;
+}
+.test-exit-active {
+  opacity: 0.5;
+  transition: opacity 2000ms;
+}
+.test-exit-done {
+  opacity: 0;
+} */

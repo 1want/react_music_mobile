@@ -64,7 +64,7 @@ export const dicoverMenu = [
   {
     title: '推荐',
     link: '/home',
-    i: 'faxian',
+    i: 'icon-',
     index: 0
   },
   {

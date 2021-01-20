@@ -40,3 +40,11 @@ export const getHomeNewSong = (cat = '欧美', limit = 6) =>
       limit
     }
   })
+
+export const getMusic = id =>
+  request({
+    url: '/song/url',
+    params: {
+      id
+    }
+  })

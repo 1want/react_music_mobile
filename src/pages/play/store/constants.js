@@ -1,0 +1,2 @@
+export const GET_MUSIC_URL = 'GET_MUSIC_URL'
+export const CHANGE_PLAY_TYPE = 'CHANGE_PLAY_TYPE'

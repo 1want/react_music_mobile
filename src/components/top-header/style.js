@@ -21,7 +21,7 @@ export const TopMenu = styled.div`
     background: #fff;
     text-indent: 0.8rem;
   }
-  .icon-luyin {
+  .icon-faxian {
     width: 3.6rem;
     height: 3.125rem;
     line-height: 3.125rem;
