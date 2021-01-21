@@ -23,6 +23,7 @@ function NewSong() {
     }),
     shallowEqual
   )
+
   useEffect(() => {
     dispatch(getAlbumAction(7))
   }, [dispatch])
@@ -98,7 +99,7 @@ function Item(props) {
                       </div>
                       <div className='item-right'>
                         <span>{res.name}</span>
-                        <p>{res.album.name}</p>
+                        <p>{res.album.company}</p>
                       </div>
                     </div>
                   )

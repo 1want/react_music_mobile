@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useRef, useEffect } from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 
@@ -8,6 +8,8 @@ import { Wrapper, Header, Main, Footer } from './style'
 import './enter.css'
 
 function Max() {
+  const textDom = useRef()
+  const BoxDom = useRef()
   const dispatch = useDispatch()
   const songInfo = useSelector(
     state => state.getIn(['play', 'songs']),
@@ -20,6 +22,11 @@ function Max() {
     dispatch(checkMiniPlay())
     isShow(!show)
   }
+
+  function toScrollLeft() {
+    //
+  }
+
   return (
     <CSSTransition in={show} timeout={500} classNames='play' appear>
       <Wrapper>
@@ -27,17 +34,18 @@ function Max() {
           <span
             className='iconfont icon-xiajiantou_huaban'
             onClick={() => changePlayType()}></span>
-          <div className='songs-info'>
-            <span>
-              ({songInfo.alia[0]}){songInfo.name}
+          <div className='songs-info' ref={BoxDom}>
+            <span ref={textDom}>
+              {songInfo.alia[0]}
+              {songInfo.name}
             </span>
             <p>{songInfo.ar[0].name}</p>
           </div>
-          <span>分享</span>
+          <span className='iconfont icon-share_icon'></span>
         </Header>
         <Main>
           <div className='img-wrapper'>
-            <img src={songInfo ? 'songInfo.al.picUrl' : ''} alt='' />
+            <img src={songInfo.al.picUrl || ''} alt='' />
           </div>
         </Main>
         <Footer>

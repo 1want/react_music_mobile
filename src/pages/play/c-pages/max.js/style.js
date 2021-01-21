@@ -19,15 +19,27 @@ export const Header = styled.div`
   .iconfont {
     font-size: 30px;
     color: #fff;
+    width: 60px;
   }
   .songs-info {
     display: flex;
     flex-direction: column;
     flex: 1;
     align-items: center;
+    span {
+      text-align: center;
+      width: 70%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     p {
       margin-top: 5px;
     }
+  }
+  .icon-share_icon {
+    font-size: 24px;
+    text-align: center;
   }
 `
 

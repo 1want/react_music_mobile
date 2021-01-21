@@ -32,15 +32,6 @@ export const getHomeAlbum = (type = 96) =>
     }
   })
 
-// 获取歌曲播放url
-export const getMusicUrl = id =>
-  request({
-    url: '/song/url',
-    params: {
-      id
-    }
-  })
-
 // 获取歌曲信息
 export const getMusicInfo = ids =>
   request({

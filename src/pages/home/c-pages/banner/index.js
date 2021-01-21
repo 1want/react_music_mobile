@@ -21,6 +21,7 @@ function Banner() {
     shallowEqual
   )
   useEffect(() => {
+    console.log('banner')
     dispatch(getBannerAction())
   }, [dispatch])
 

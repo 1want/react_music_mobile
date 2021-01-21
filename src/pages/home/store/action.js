@@ -29,12 +29,12 @@ export const getVideo = res => ({
 
 export const getAlbum = res => ({
   type: actionTypes.CHANGE_ALBUM,
-  album: res.data.slice(0, 6)
+  album: res
 })
 
 export const getNewSong = res => ({
   type: actionTypes.CHANGE_NEW_SONG,
-  NewSong: res.data.slice(0, 6)
+  NewSong: res
 })
 
 export const getBannerAction = () => {
@@ -72,7 +72,7 @@ export const getVideoAction = () => {
 export const getAlbumAction = type => {
   return dispatch => {
     getHomeAlbum(type).then(res => {
-      dispatch(getAlbum(res))
+      dispatch(getAlbum(res.data.slice(0, 6)))
     })
   }
 }
@@ -80,7 +80,7 @@ export const getAlbumAction = type => {
 export const getNewSongAction = () => {
   return dispatch => {
     getHomeAlbum().then(res => {
-      dispatch(getNewSong(res))
+      dispatch(getNewSong(res.data.slice(0, 6)))
     })
   }
 }

@@ -1,7 +1,8 @@
 import React, { memo, useRef, shallowEqual, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { getMusicUrlAction, getMusicInfoAction } from './store/action'
+import { getMusicInfoAction } from './store/action'
+import { getPlayUrl } from '@/utils/getPlayUrl'
 
 import Mini from './c-pages/mini.js'
 import Max from './c-pages/max.js'
@@ -10,12 +11,12 @@ export default memo(function Player(props) {
   const dispatch = useDispatch()
   const urlRef = useRef()
 
-  let { playType, playList, songs, musicUrl } = useSelector(
+  let { playType, playList, songs, playing } = useSelector(
     state => ({
       playType: state.getIn(['play', 'playType']),
       playList: state.getIn(['play', 'playList']),
       songs: state.getIn(['play', 'songs']),
-      musicUrl: state.getIn(['play', 'musicUrl'])
+      playing: state.getIn(['play', 'playing'])
     }),
     shallowEqual
   )
@@ -28,16 +29,28 @@ export default memo(function Player(props) {
 
   useEffect(() => {
     if (songs != '') {
-      dispatch(getMusicUrlAction(songs.id))
+      urlRef.current.src = getPlayUrl(songs.id)
     }
   }, [songs])
+
+  useEffect(() => {
+    if (songs != '') {
+      if (playing === true) {
+        console.log('pause')
+        urlRef.current.pause()
+      } else {
+        console.log('play')
+        urlRef.current.play()
+      }
+    }
+  }, [playing])
 
   return (
     <>
       {playList != '' && (
         <div>
           {playType === 'mini' ? <Mini></Mini> : <Max></Max>}
-          <audio src={musicUrl.url} ref={urlRef} autoPlay></audio>
+          <audio src='' ref={urlRef} autoPlay loop></audio>
         </div>
       )}
     </>

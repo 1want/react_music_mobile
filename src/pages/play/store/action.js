@@ -1,6 +1,7 @@
 import * as actionTypes from './constants'
 
-import { getMusicUrl, getMusicInfo } from '@/api/home'
+import { getMusicInfo } from '@/api/home'
+import { playState } from '@/utils/changePlayState'
 
 export const checkMiniPlay = () => ({
   type: actionTypes.CHANGE_PLAY_TYPE,
@@ -10,6 +11,11 @@ export const checkMiniPlay = () => ({
 export const checkMaxPlay = () => ({
   type: actionTypes.CHANGE_PLAY_TYPE,
   playType: 'max'
+})
+
+export const changePlay = type => ({
+  type: actionTypes.CHANGE_PLAY_STATE,
+  playing: playState(type)
 })
 
 // 改变当前播放歌曲的信息
@@ -23,20 +29,6 @@ export const addSongToList = res => ({
   type: actionTypes.ADD_MUSIC_TO_LIST,
   playList: res
 })
-
-// 获取歌曲url
-export const getSongUrl = res => ({
-  type: actionTypes.GET_MUSIC_URL,
-  musicUrl: res.data[0]
-})
-
-export const getMusicUrlAction = id => {
-  return dispatch => {
-    getMusicUrl(id).then(res => {
-      dispatch(getSongUrl(res))
-    })
-  }
-}
 
 export const getMusicInfoAction = id => {
   return dispatch => {
