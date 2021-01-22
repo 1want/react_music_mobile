@@ -40,3 +40,11 @@ export const getMusicInfo = ids =>
       ids
     }
   })
+
+export const getMusicLyric = id =>
+  request({
+    url: '/lyric',
+    params: {
+      id
+    }
+  })

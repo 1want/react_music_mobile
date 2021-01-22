@@ -13,6 +13,7 @@
     "immutable": "^4.0.0-rc.12",
     "less": "^4.1.0",
     "less-loader": "^7.2.1",
+    "lyric-parser": "^1.0.1",
     "node-sass": "^5.0.0",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",

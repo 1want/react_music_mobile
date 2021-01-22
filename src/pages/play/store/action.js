@@ -1,6 +1,6 @@
 import * as actionTypes from './constants'
 
-import { getMusicInfo } from '@/api/home'
+import { getMusicInfo, getMusicLyric } from '@/api/home'
 import { playState } from '@/utils/changePlayState'
 
 export const checkMiniPlay = () => ({
@@ -30,10 +30,23 @@ export const addSongToList = res => ({
   playList: res
 })
 
+export const changeMusicLyric = res => ({
+  type: actionTypes.CHANGE_MUSIC_LYRIC,
+  lyric: res
+})
+
 export const getMusicInfoAction = id => {
   return dispatch => {
     getMusicInfo(id).then(res => {
       dispatch(changeSongInfo(res))
+    })
+  }
+}
+
+export const getMusicLyricAction = id => {
+  return dispatch => {
+    getMusicLyric(id).then(res => {
+      dispatch(changeMusicLyric(res.lrc.lyric))
     })
   }
 }

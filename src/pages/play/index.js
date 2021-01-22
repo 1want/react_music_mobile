@@ -36,10 +36,8 @@ export default memo(function Player(props) {
   useEffect(() => {
     if (songs != '') {
       if (playing === true) {
-        console.log('pause')
         urlRef.current.pause()
       } else {
-        console.log('play')
         urlRef.current.play()
       }
     }

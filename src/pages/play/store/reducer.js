@@ -8,7 +8,8 @@ const defaultState = Map({
   playing: false,
   playList: [],
   mode: 'sequence',
-  playType: 'mini'
+  playType: 'mini',
+  lyric: []
 })
 
 const reducers = (state = defaultState, action) => {
@@ -21,6 +22,8 @@ const reducers = (state = defaultState, action) => {
       return state.set('songs', action.song)
     case actionTypes.CHANGE_PLAY_STATE:
       return state.set('playing', action.playing)
+    case actionTypes.CHANGE_MUSIC_LYRIC:
+      return state.set('lyric', action.lyric)
     default:
       return state
   }
